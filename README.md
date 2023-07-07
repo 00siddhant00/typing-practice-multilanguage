@@ -6,7 +6,10 @@ This project is a multilanguage typing practice application that allows users to
 ## Features
 - Dark theme for comfortable typing in low-light environments.
 - Light theme for a clean and bright interface.
-- Supports multiple languages, including English, Marathi, and Hindi.
+- Supports multiple languages, including:
+    - English
+    - Marathi
+    - Hindi.
 - Typing tests to practice and improve typing speed and accuracy.
 
 ## Screenshots
