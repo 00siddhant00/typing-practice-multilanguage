@@ -9,6 +9,7 @@ const thirty = document.getElementById("thirty");
 const sixty = document.getElementById("sixty");
 const beg = document.getElementById("beg");
 const pro = document.getElementById("pro");
+const selectedValue = languageDropdown.value;
 
 var wordNo = 1;
 var wordsSubmitted = 0;
@@ -252,7 +253,7 @@ const dropdown = document.getElementById('languageDropdown');
 // Add event listener for 'change' event
 dropdown.addEventListener('change', function() {
   // Get the selected value
-  const selectedValue = dropdown.value;
+  selectedValue = dropdown.value;
 
   // Use a switch statement based on the selected value
   switch (selectedValue) {
@@ -279,20 +280,22 @@ dropdown.addEventListener('change', function() {
 //Generate an array of 5 random sentences
 function randomSentences(diff){
   var basicSentencesMarathi = [
-    "माझं नाव सागर आहे.", 
-    "तो विद्यालयाला जातो.", 
-    "माझी मित्रा मला मदत करते.", 
-    "आज हवामान छान आहे.", 
-    "मी जेवण खाल्लाय."
+    "This is a test sentence.",
+      "The weather is beautiful today.",
+      "I love to eat pizza.",
+      "She sings very well.",
+      "He is a good friend."
   ];
   
   var topSentencesMarathi = [
-    "ही पुस्तक माझी आहे.", 
-    "माझी मांजर मला प्रेम करते.", 
-    "मी त्याला दूरध्वनी केली.", 
-    "ती गाणं गा राहते.", 
-    "मला काही समजून येत नाही."
+    "I enjoy playing the guitar.",
+        "The cat is sleeping on the mat.",
+        "She has a beautiful voice.",
+        "We are going on a vacation.",
+        "He plays tennis every weekend."
   ];
+
+
   
   var sentenceArray = basicSentencesMarathi;
 
