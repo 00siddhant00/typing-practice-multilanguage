@@ -246,6 +246,36 @@ function displayTest(diff){
   colorSpan(nextID, 2);
 }
 
+// Get the dropdown element
+const dropdown = document.getElementById('languageDropdown');
+
+// Add event listener for 'change' event
+dropdown.addEventListener('change', function() {
+  // Get the selected value
+  const selectedValue = dropdown.value;
+
+  // Use a switch statement based on the selected value
+  switch (selectedValue) {
+    case 'en':
+      // Code to execute when 'English' option is selected
+      console.log('English selected');
+      break;
+    case 'mr':
+      // Code to execute when 'Marathi' option is selected
+      console.log('Marathi selected');
+      break;
+    case 'hi':
+      // Code to execute when 'Hindi' option is selected
+      console.log('Hindi selected');
+      break;
+    default:
+      // Code to execute when none of the options match
+      console.log('No language selected');
+      break;
+  }
+});
+
+
 //Generate an array of 5 random sentences
 function randomSentences(diff){
   var basicSentencesMarathi = [
