@@ -3,91 +3,93 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="This Speed Typing Test will give you an acuurate speed test and help increase your typing speed"/>
+    <meta name="description" content="This Speed Typing Test will give you an accurate speed test and help increase your typing speed">
     <title>Marathi Typing Test</title>
     <link rel="icon" href="favicon.ico">
-    <!--Bootstrap 4 -->
+    <!-- Bootstrap 4 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Source+Code+Pro:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- fontawesome -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-
-
   </head>
   <body>
     <div class="containerise">
-    <div class="container-fluid box">
-      <div class="top">
-        <h1 id="heading" class="accent">Marathi Typing Speed Test</h1>
-        <div class="limits-box">
-          <div class="limit">
-            <a id="thirty" class="accent"  href="#" >30s</a>
-            <a id="sixty"  href="#" >60s</a>
+      <div class="container-fluid box">
+        <div class="top">
+          <h1 id="heading" class="accent">Marathi Typing Speed Test</h1>
+          <div class="limits-box">
+            <div class="limit">
+              <a id="thirty" class="accent" href="#">30s</a>
+              <a id="sixty" href="#">60s</a>
+            </div>
+            <div class="limit">
+              <input type="number" id="customTime" min="1" placeholder="Time in seconds">
+              <button id="setCustomTime" class="accent">Set Time</button>
+            </div>
+            <div class="limit">
+              <a id="beg" class="accent" href="#">beginner</a>
+              <a id="pro" href="#">pro</a>
+            </div>
           </div>
-          
-          <div class="limit">
-            <input type="number" id="customTime" min="1" placeholder="Time in seconds">
-            <button id="setCustomTime" class="accent">Set Time</button>
-          </div>          
-          
-          <div class="limit">
-            <a id="beg" class="accent"  href="#" >beginner</a>
-            <a id="pro"  href="#" >pro</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="stats center">
-        <div class="stat-block if">
-          <div id="timeName" class = "stat-name accent if">Time</div>
-          <div id="time" class="details if">30</div>
-        </div>
-
-        <div class="stat-block if">
-          <div id="cwName" class = "stat-name accent if">CW</div>
-          <div id="cw" class="details if">0</div>
-        </div>
-      </div>
-
-      <div class="main-sections">
-        <div class="input-section">
-          <div class="input-area center">
-            <textarea rows="1" class="text-input" id="textInput" autofocus autocomplete="off" autocapitalize="off" spellcheck="false"></textarea>
+          <!-- Add the dropdown menu -->
+          <div class="language-dropdown">
+            <label for="languageDropdown">Language:</label>
+            <select id="languageDropdown">
+              <option value="en">English</option>
+              <option value="mr">Marathi</option>
+              <option value="hi">Hindi</option>
+            </select>
           </div>
         </div>
 
-        <div class="text-display-section">
-          <div class="text-display" id="textDisplay">
-            <!-- Your text display content goes here -->
+        <div class="stats center">
+          <div class="stat-block if">
+            <div id="timeName" class="stat-name accent if">Time</div>
+            <div id="time" class="details if">30</div>
+          </div>
+
+          <div class="stat-block if">
+            <div id="cwName" class="stat-name accent if">CW</div>
+            <div id="cw" class="details if">0</div>
           </div>
         </div>
-      </div>
 
-      <div class="restart-button center">
-        <a id="restartBtn" class = "current" href="#">
-          <i class="fas fa-redo"></i>
-        </a>
-      </div>
+        <div class="main-sections">
+          <div class="input-section">
+            <div class="input-area center">
+              <textarea rows="1" class="text-input" id="textInput" autofocus autocomplete="off" autocapitalize="off" spellcheck="false"></textarea>
+            </div>
+          </div>
 
-      <footer class="center">
-        <a class="grey" href="github.com">Enjoy</a>
-        <div class="theme-switch-wrapper">
-          <label class="theme-switch" for="checkbox">
+          <div class="text-display-section">
+            <div class="text-display" id="textDisplay">
+              <!-- Your text display content goes here -->
+            </div>
+          </div>
+        </div>
+
+        <div class="restart-button center">
+          <a id="restartBtn" class="current" href="#">
+            <i class="fas fa-redo"></i>
+          </a>
+        </div>
+
+        <footer class="center">
+          <a class="grey" href="github.com">Enjoy</a>
+          <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
               <input type="checkbox" id="checkbox" />
               <div class="slider round"></div>
-          </label>
-          <em>Enable Light Mode!</em>
+            </label>
+            <em>Enable Light Mode!</em>
+          </div>
+        </footer>
       </div>
-      
-      </footer>
+      <!-- My JavaScript -->
+      <script src="app.js"></script>
     </div>
-    <!-- My Javascript -->
-    <script src="app.js"></script>
-  </div>
-</body>
-
+  </body>
 </html>
-
