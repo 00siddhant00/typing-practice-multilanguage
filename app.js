@@ -278,3 +278,44 @@ function randomSentences(diff){
   }
   return selectedSentences;
 }
+
+const themeSwitch = document.querySelector('#checkbox');
+const body = document.getElementsByTagName('BODY')[0];
+
+themeSwitch.addEventListener('change', () => {
+  if (themeSwitch.checked) {
+    document.documentElement.setAttribute('data-theme', 'light');
+    localStorage.setItem('theme', 'light');
+    body.style.background = '#c9e4f0'; // A softer white color
+    body.style.color = '#333333'; // A dark grey color instead of black
+    // Change purple text to sky blue
+    document.querySelectorAll('.accent').forEach(function(el){
+        el.style.color = '#87ceeb';
+    });
+
+    // Change the .limit and .text-input background and color
+    document.querySelectorAll('.limit input[type="number"], .limit button, .text-input').forEach(function(el){
+        el.style.background = '#ffffff'; // Or whatever color you want for the background
+        el.style.color = '#333333'; // Or whatever color you want for the text
+    });
+
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+    body.style.background = '#212121';
+    body.style.color = '#eeeeee';
+    // Change sky blue text back to purple
+    document.querySelectorAll('.accent').forEach(function(el){
+        el.style.color = '#d69dec';
+    });
+    
+    // Reset the .limit and .text-input background and color
+    document.querySelectorAll('.limit input[type="number"], .limit button, .text-input').forEach(function(el){
+        el.style.background = '#212121'; 
+        el.style.color = '#eeeeee'; 
+    });
+  }    
+});
+
+// To keep the user's preference on page reload
+const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null
