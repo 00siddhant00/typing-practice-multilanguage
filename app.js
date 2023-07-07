@@ -9,6 +9,7 @@ const thirty = document.getElementById("thirty");
 const sixty = document.getElementById("sixty");
 const beg = document.getElementById("beg");
 const pro = document.getElementById("pro");
+let language = null;
 
 var wordNo = 1;
 var wordsSubmitted = 0;
@@ -246,37 +247,133 @@ function displayTest(diff){
   colorSpan(nextID, 2);
 }
 
-//Generate an array of 5 random sentences
-function randomSentences(diff){
-  var basicSentencesMarathi = [
-    "माझं नाव सागर आहे.", 
-    "तो विद्यालयाला जातो.", 
-    "माझी मित्रा मला मदत करते.", 
-    "आज हवामान छान आहे.", 
-    "मी जेवण खाल्लाय."
-  ];
+// Get the dropdown element
+const dropdown = document.getElementById('languageDropdown');
+
+// Add event listener for 'change' event
+dropdown.addEventListener('change', function() {
+  // Get the selected value
+  const selectedValue = dropdown.value;
+
+  language = selectedValue;
+
+  // Use a switch statement based on the selected value
+  switch (selectedValue) {
+    case 'en':
+      // Code to execute when 'English' option is selected
+      console.log('English selected');
+      displayTest(difficulty);
+      break;
+    case 'mr':
+      // Code to execute when 'Marathi' option is selected
+      console.log('Marathi selected');
+      displayTest(difficulty);
+      break;
+    case 'hi':
+      // Code to execute when 'Hindi' option is selected
+      console.log('Hindi selected');
+      displayTest(difficulty);
+      break;
+    default:
+      // Code to execute when none of the options match
+      console.log('No language selected');
+      displayTest(difficulty);
+      break;
+    }
+  });
   
-  var topSentencesMarathi = [
-    "ही पुस्तक माझी आहे.", 
-    "माझी मांजर मला प्रेम करते.", 
-    "मी त्याला दूरध्वनी केली.", 
-    "ती गाणं गा राहते.", 
-    "मला काही समजून येत नाही."
-  ];
   
-  var sentenceArray = basicSentencesMarathi;
+  //Generate an array of 5 random sentences
+  function randomSentences(diff){
+    
+    let basicSentencesMarathi = [];
+    
+    let topSentencesMarathi = [];
+
+    switch (language) {
+      case 'en':
+        // Code to execute when 'English' option is selected
+        basicSentencesMarathi = [
+          "Reading is a wonderful activity that helps us explore new worlds and expand our knowledge. When we read, we enter into different stories and learn about different places, people, and ideas. It's like taking a magical journey without leaving our cozy spot. Reading also improves our vocabulary and language skills. It opens our minds and broadens our perspectives, allowing us to see things from different angles. Whether it's a book, a magazine, or even an online article, reading can be a fantastic way to relax, gain new insights, and ignite our imagination. So, let's grab a book and embark on an exciting adventure through the power of reading!",
+          "Reading books helps us learn new things and expand our knowledge. It's like taking an adventure into different stories and exploring various places and ideas. When we read, our minds open up and we see the world from different angles. It's a great way to relax and discover new insights. Whether it's a paperback or an e-book, reading can be a wonderful pastime that sparks our imagination and broadens our understanding of the world.",
+            "Books have the power to take us on a journey through stories that touch our hearts and minds. When we read, we can explore different emotions, thoughts, and perspectives that people experience. It's like looking into a mirror and understanding ourselves and others better. Good writers can paint vivid pictures in our minds with their words, making us feel like we're part of the story. Reading allows us to connect with characters and their experiences, and it helps us reflect on our own lives. It's a beautiful way to learn and grow."
+        ];
+    
+        topSentencesMarathi = [
+          "The act of perusing literary works endows us with profound benefits, unraveling a tapestry of enlightenment and cognitive expansion. Engaging in the cerebral exercise of reading transports us to uncharted realms, where we acquaint ourselves with diverse narratives, locales, and ideologies. It evokes an ethereal expedition, wherein the mind roams boundlessly without forsaking physical comforts. Furthermore, the written word enhances our lexicon and linguistic prowess, engendering an intellectual acuity that allows for multifaceted perspectives. Be it the printed tome, a periodical publication, or even the digital manuscript, the act of reading assumes the guise of an exquisite pastime, affording respite, engendering epiphanies, and kindling the embers of imagination. Thus, let us clutch a volume and embark on an exhilarating odyssey, propelled by the profound efficacy of reading!",
+          "The acquisition of erudition through the perusal of literary opuses confers upon us an array of profound intellectual advantages, catalyzing the unfurling of an intricate tapestry of enlightenment and cognitive augmentation. Immersing ourselves in the cerebral exercise of textual consumption transports us to uncharted realms of consciousness, where we acquaint ourselves with diverse narratives, locales, and ideologies, thereby broadening the horizons of our cognitive faculties. The act of reading assumes the guise of an ethereal odyssey, wherein the mind roams boundlessly amidst a labyrinth of profound ruminations, bereft of physical constraints. Moreover, the consumption of the written word augments our lexical repository and linguistic acumen, engendering an intellectual dexterity that enables the assimilation of multifaceted perspectives, fostering a heightened capacity for critical analysis and nuanced interpretation.",
+          "The literary medium, imbued with the power of the written word, serves as a portal to a vast expanse of insights and narratives that resonate with the profound depths of human experience. As we traverse the eloquent prose and intricately woven narratives of literary works, we embark on an introspective sojourn, exploring the diverse fabric of emotions, thoughts, and perspectives that underlie the human condition. The written word, when wielded with artistry and precision, incites introspection, engendering a symphony of ideas that unfurls within the fertile recesses of the reader's consciousness. It is within this crucible of intellectual engagement that the harmonious interplay of textual interpretation and subjective resonance transpires, illuminating the contours of our individual and collective existence."
+        ];
+      break;
+    case 'mr':
+      // Code to execute when 'Marathi' option is selected
+      basicSentencesMarathi = [
+        "माझं नाव सागर आहे.",
+        "तो विद्यालयाला जातो.",
+        "माझी मित्रा मला मदत करते.",
+        "आज हवामान छान आहे.",
+        "मी जेवण खाल्लाय."
+    ];
+    
+    topSentencesMarathi = [
+      "ही पुस्तक माझी आहे.",
+        "माझी मांजर मला प्रेम करते.",
+        "मी त्याला दूरध्वनी केली.",
+        "ती गाणं गा राहते.",
+        "मला काही समजून येत नाही."
+    ];
+      break;
+    case 'hi':
+      // Code to execute when 'Hindi' option is selected
+      basicSentencesMarathi = [
+        "मेरा नाम सोहन है।",
+        "वह खेल में बहुत अच्छी है।",
+        "मैं आपसे मिलना चाहता हूँ।",
+        "आज मौसम बहुत अच्छा है।",
+        "तुम्हारी किताब यहाँ है।"
+    ];
+    
+    topSentencesMarathi = [
+      "मैं गाना गा रहा हूँ।",
+        "तुम बहुत अच्छा खाना बनाती हो।",
+        "वह खुशी से नाच रही है।",
+        "मेरे पास एक बड़ा घर है।",
+        "आपकी तारीफें सुनकर अच्छा लगा।"
+    ];
+      break;
+    default:
+      // Code to execute when none of the options match
+      basicSentencesMarathi = [
+      "Reading is a wonderful activity that helps us explore new worlds and expand our knowledge. When we read, we enter into different stories and learn about different places, people, and ideas. It's like taking a magical journey without leaving our cozy spot. Reading also improves our vocabulary and language skills. It opens our minds and broadens our perspectives, allowing us to see things from different angles. Whether it's a book, a magazine, or even an online article, reading can be a fantastic way to relax, gain new insights, and ignite our imagination. So, let's grab a book and embark on an exciting adventure through the power of reading!",
+      "Reading books helps us learn new things and expand our knowledge. It's like taking an adventure into different stories and exploring various places and ideas. When we read, our minds open up and we see the world from different angles. It's a great way to relax and discover new insights. Whether it's a paperback or an e-book, reading can be a wonderful pastime that sparks our imagination and broadens our understanding of the world.",
+        "Books have the power to take us on a journey through stories that touch our hearts and minds. When we read, we can explore different emotions, thoughts, and perspectives that people experience. It's like looking into a mirror and understanding ourselves and others better. Good writers can paint vivid pictures in our minds with their words, making us feel like we're part of the story. Reading allows us to connect with characters and their experiences, and it helps us reflect on our own lives. It's a beautiful way to learn and grow."
+    ];
+    
+    topSentencesMarathi = [
+      "The act of perusing literary works endows us with profound benefits, unraveling a tapestry of enlightenment and cognitive expansion. Engaging in the cerebral exercise of reading transports us to uncharted realms, where we acquaint ourselves with diverse narratives, locales, and ideologies. It evokes an ethereal expedition, wherein the mind roams boundlessly without forsaking physical comforts. Furthermore, the written word enhances our lexicon and linguistic prowess, engendering an intellectual acuity that allows for multifaceted perspectives. Be it the printed tome, a periodical publication, or even the digital manuscript, the act of reading assumes the guise of an exquisite pastime, affording respite, engendering epiphanies, and kindling the embers of imagination. Thus, let us clutch a volume and embark on an exhilarating odyssey, propelled by the profound efficacy of reading!",
+      "The acquisition of erudition through the perusal of literary opuses confers upon us an array of profound intellectual advantages, catalyzing the unfurling of an intricate tapestry of enlightenment and cognitive augmentation. Immersing ourselves in the cerebral exercise of textual consumption transports us to uncharted realms of consciousness, where we acquaint ourselves with diverse narratives, locales, and ideologies, thereby broadening the horizons of our cognitive faculties. The act of reading assumes the guise of an ethereal odyssey, wherein the mind roams boundlessly amidst a labyrinth of profound ruminations, bereft of physical constraints. Moreover, the consumption of the written word augments our lexical repository and linguistic acumen, engendering an intellectual dexterity that enables the assimilation of multifaceted perspectives, fostering a heightened capacity for critical analysis and nuanced interpretation.",
+      "The literary medium, imbued with the power of the written word, serves as a portal to a vast expanse of insights and narratives that resonate with the profound depths of human experience. As we traverse the eloquent prose and intricately woven narratives of literary works, we embark on an introspective sojourn, exploring the diverse fabric of emotions, thoughts, and perspectives that underlie the human condition. The written word, when wielded with artistry and precision, incites introspection, engendering a symphony of ideas that unfurls within the fertile recesses of the reader's consciousness. It is within this crucible of intellectual engagement that the harmonious interplay of textual interpretation and subjective resonance transpires, illuminating the contours of our individual and collective existence."
+    ];
+      break;
+  }
+
+
+  
+  var selectedSentences = [
+    basicSentencesMarathi[Math.floor(Math.random() * basicSentencesMarathi.length)]
+  ];
+  var sentenceArray = selectedSentences;
 
   if(diff == 2){
     sentenceArray = topSentencesMarathi;
   }
 
-  var selectedSentences = [];
-  for(var i = 0; i < 5; i++){ // Only select 5 sentences
-    var randomNumber = Math.floor(Math.random() * sentenceArray.length);
-    selectedSentences.push(sentenceArray[randomNumber]);
-    sentenceArray.splice(randomNumber, 1); // Remove the selected sentence from the sentenceArray to avoid repetitions
-  }
-  return selectedSentences;
+  // for(var i = 0; i < 5; i++){ // Only select 5 sentences
+  //   var randomNumber = Math.floor(Math.random() * sentenceArray.length);
+  //   selectedSentences.push(sentenceArray[randomNumber]);
+  //   sentenceArray.splice(randomNumber, 1); // Remove the selected sentence from the sentenceArray to avoid repetitions
+  // }
+  return sentenceArray;
 }
 
 const themeSwitch = document.querySelector('#checkbox');
