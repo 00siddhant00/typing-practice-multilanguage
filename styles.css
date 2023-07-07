@@ -11,12 +11,15 @@ body{
 a{
   color: #52575d;
 }
-.yellow{
-  color: #d69dec;
+
+.accent{
+    color: #d69dec;
 }
 
-.purple{
-    color: #d69dec;
+.containerise{
+  height: auto;
+  width: auto;
+  margin-top: 50px;
 }
 
 .correct{
@@ -43,7 +46,6 @@ a{
 
 #heading{
   align-self: left;
-  margin-top: 50px;
   font-size: 1.75rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
@@ -93,7 +95,7 @@ input:focus, textarea:focus, select:focus, a:focus{
   outline: 0 ;
 }
 a:focus,a:hover{
-  color: #ffd369;
+  color: #ecbcff;
   text-decoration: none;
 }
 
@@ -119,9 +121,6 @@ textarea{
   margin-bottom: 15px;
 }
 
-/* Existing CSS */
-/* ... */
-
 .main-sections {
   display: flex;
 }
@@ -146,19 +145,18 @@ textarea{
   background: #212121;
   border: 2px solid #52575d;  /* corrected border property */
   border-radius: 10px;
-  color: #eeeeee;
+  color: #d69dec;
   padding: 5px;
   font-size: 1rem;
 }
 
 .limit button {
   cursor: pointer;
-  color: #d69dec;  /* The purple color */
 }
 
 /* Changing button color on hover and focus */
 .limit button:hover, .limit button:focus {
-  color: #ffd369;
+  color: #ecbcff;
 }
 
 /* Removing the spinner from the number input field */
@@ -184,4 +182,107 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 .limit input[type='number'] {
   -moz-appearance:textfield; /* Necessary for Firefox */
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-display-section, .input-section {
+  width: 45%;  /* adjust this as needed */
+}
+
+@media screen and (max-width: 600px) {
+  .flex-container {
+    flex-direction: column-reverse;
+  }
+
+  .text-display-section, .input-section {
+    width: 100%;
+  }
+}
+
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.slider {
+  background-color: #111;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+body[data-theme="light"] {
+  background: #f5f5f5;
+}
+
+body[data-theme="light"] .slider {
+  background-color: #bdbdbd;
+}
+
+body[data-theme="light"] .slider:before {
+  background-color: #757575;
+}
+
+body[data-theme="light"] input:checked + .slider {
+  background-color: #4caf50;
+}
+
+body[data-theme="light"] input:checked + .slider:before {
+  transform: translateX(26px);
+}
+html[data-theme="light"] {
+  background: #e3f2fd;
+}
+
+html[data-theme="light"] .accent {
+  color: #df0303;
 }
